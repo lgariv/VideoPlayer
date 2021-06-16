@@ -40,10 +40,14 @@ public struct NewVideoPlayer {
     ///   - url: http/https URL
     ///   - play: play/pause
     ///   - time: current time
-    public init(url: URL, play: Binding<Bool>, time: Binding<CMTime> = .constant(.zero)) {
-        self.url = url
+    public init(url: URL?, play: Binding<Bool>, time: Binding<CMTime> = .constant(.zero)) {
         _play = play
         _time = time
+        guard let url = url else {
+            self.url = URL(string: "")!
+            return
+        }
+        self.url = url
     }
 }
 
