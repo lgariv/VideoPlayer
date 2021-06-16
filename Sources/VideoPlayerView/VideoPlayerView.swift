@@ -11,7 +11,7 @@ import GSPlayer
 import SwiftUI
 
 @available(iOS 13, *)
-public struct VideoPlayer {
+public struct NewVideoPlayer {
     
     public enum State {
         
@@ -48,7 +48,7 @@ public struct VideoPlayer {
 }
 
 @available(iOS 13, *)
-public extension VideoPlayer {
+public extension NewVideoPlayer {
     
     /// Set the preload size, the default value is 1024 * 1024, unit is byte.
     static var preloadByteCount: Int {
@@ -81,7 +81,7 @@ public extension VideoPlayer {
 }
 
 @available(iOS 13, *)
-public extension VideoPlayer {
+public extension NewVideoPlayer {
     
     struct Config {
         struct Handler {
@@ -152,7 +152,7 @@ public extension VideoPlayer {
 }
 
 @available(iOS 13, *)
-extension VideoPlayer: UIViewRepresentable {
+extension NewVideoPlayer: UIViewRepresentable {
     
     public func makeUIView(context: Context) -> VideoPlayerView {
         let uiView = VideoPlayerView()
@@ -204,18 +204,18 @@ extension VideoPlayer: UIViewRepresentable {
         }
     }
     
-    public static func dismantleUIView(_ uiView: VideoPlayerView, coordinator: VideoPlayer.Coordinator) {
+    public static func dismantleUIView(_ uiView: VideoPlayerView, coordinator: NewVideoPlayer.Coordinator) {
         uiView.pause(reason: .hidden)
     }
     
     public class Coordinator: NSObject {
-        var videoPlayer: VideoPlayer
+        var videoPlayer: NewVideoPlayer
         var observingURL: URL?
         var observer: Any?
         var observerTime: CMTime?
         var observerBuffer: Double?
 
-        init(_ videoPlayer: VideoPlayer) {
+        init(_ videoPlayer: NewVideoPlayer) {
             self.videoPlayer = videoPlayer
         }
         
@@ -263,7 +263,7 @@ extension VideoPlayer: UIViewRepresentable {
 
 private extension VideoPlayerView {
     
-    func convertState() -> VideoPlayer.State {
+    func convertState() -> NewVideoPlayer.State {
         switch state {
         case .none, .loading:
             return .loading

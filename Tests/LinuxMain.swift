@@ -1,7 +1,7 @@
 import XCTest
 
-import VideoPlayerTests
+import VideoPlayerViewTests
 
 var tests = [XCTestCaseEntry]()
-tests += VideoPlayerTests.allTests()
+tests += VideoPlayerViewTests.allTests()
 XCTMain(tests)

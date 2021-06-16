@@ -1,4 +1,4 @@
-![VideoPlayer](https://github.com/wxxsw/VideoPlayer/blob/master/Images/logo.png)
+![VideoPlayerView](https://github.com/wxxsw/VideoPlayerView/blob/master/Images/logo.png)
 
 <p align="center">
 <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/language-Swift%205-f48041.svg?style=flat"></a>
@@ -6,7 +6,7 @@
 <a href="https://developer.apple.com/ios"><img src="https://img.shields.io/badge/platform-iOS%2013%2b-blue.svg?style=flat"></a>
 <a href="https://github.com/apple/swift-package-manager"><img src="https://img.shields.io/badge/SPM-compatible-4BC51D.svg?style=flat"></a>
 <a href="https://codebeat.co/projects/github-com-wxxsw-videoplayer-master"><img alt="codebeat badge" src="https://codebeat.co/badges/030d7cd9-f1ed-46b0-b6cc-90928ef7c941" /></a>
-<a href="https://github.com/wxxsw/VideoPlayer/blob/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat"></a>
+<a href="https://github.com/wxxsw/VideoPlayerView/blob/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat"></a>
 </p>
 <br/>
 
@@ -20,11 +20,11 @@
 
 ## Demo
 
-![Screenshot](https://github.com/wxxsw/VideoPlayer/blob/master/Images/screenshot.png)
+![Screenshot](https://github.com/wxxsw/VideoPlayerView/blob/master/Images/screenshot.png)
 
 1. Clone or download the project.
 2. In the terminal, run `swift package resolve`.
-3. Open `VideoPlayer.xcodeproj` and run `Demo` target.
+3. Open `VideoPlayerView.xcodeproj` and run `Demo` target.
 
 ## Features
 
@@ -42,7 +42,7 @@ struct ContentView : View {
     @State private var play: Bool = true
     
     var body: some View {
-        VideoPlayer(url: someVideoURL, play: $play)
+        VideoPlayerView(url: someVideoURL, play: $play)
     }
 }
 ```
@@ -57,7 +57,7 @@ struct ContentView : View {
     @State private var time: CMTime = .zero  
     
     var body: some View {
-        VideoPlayer(url: someVideoURL, play: $play, time: $time)
+        VideoPlayerView(url: someVideoURL, play: $play, time: $time)
             .autoReplay(autoReplay)
             .mute(mute)
             .onBufferChanged { progress in
@@ -89,24 +89,24 @@ struct ContentView : View {
 
 Set the video urls to be preload queue. Preloading will automatically cache a short segment of the beginning of the video and decide whether to start or pause the preload based on the buffering of the currently playing video.
 ```swift
-VideoPlayer.preload(urls: [URL])
+VideoPlayerView.preload(urls: [URL])
 ```
 
 Set the preload size, the default value is 1024 * 1024, unit is byte.
 ```swift
-VideoPlayer.preloadByteCount = 1024 * 1024 // = 1M
+VideoPlayerView.preloadByteCount = 1024 * 1024 // = 1M
 ```
 
 ### Cache
 
 Get the total size of the video cache.
 ```swift
-let size = VideoPlayer.calculateCachedSize()
+let size = VideoPlayerView.calculateCachedSize()
 ```
 
 Clean up all caches.
 ```swift
-VideoPlayer.cleanAllCache()
+VideoPlayerView.cleanAllCache()
 ```
 
 ## Installation
@@ -114,7 +114,7 @@ VideoPlayer.cleanAllCache()
 ### Swift Package Manager
 
 1. Select `Xcode -> File -> Swift Packages -> Add Package Dependency...` 
-2. Enter `https://github.com/wxxsw/VideoPlayer`.
+2. Enter `https://github.com/wxxsw/VideoPlayerView`.
 3. Click `Next`, then select the version, complete.
 
 ## Requirements
@@ -129,4 +129,4 @@ Banner Design by [@aduqin](https://dribbble.com/aduqin)
 
 ## License
 
-VideoPlayer is released under the MIT license. [See LICENSE](https://github.com/wxxsw/VideoPlayer/blob/master/LICENSE) for details.
+VideoPlayerView is released under the MIT license. [See LICENSE](https://github.com/wxxsw/VideoPlayerView/blob/master/LICENSE) for details.

@@ -7,7 +7,7 @@
 
 import AVFoundation
 import SwiftUI
-import VideoPlayer
+import VideoPlayerView
 
 private var videoURLs: [URL] = [
     URL(string: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!,
@@ -30,7 +30,7 @@ struct ContentView : View {
     
     var body: some View {
         VStack {
-            VideoPlayer(url: videoURLs[index % videoURLs.count], play: $play, time: $time)
+            VideoPlayerView(url: videoURLs[index % videoURLs.count], play: $play, time: $time)
                 .autoReplay(autoReplay)
                 .mute(mute)
                 .onBufferChanged { progress in print("onBufferChanged \(progress)") }
