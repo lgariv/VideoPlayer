@@ -44,7 +44,7 @@ public struct NewVideoPlayer {
         _play = play
         _time = time
         guard let url = url else {
-            self.url = URL(string: "")!
+            self.url = URL(string: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8")!
             return
         }
         self.url = url
